@@ -15,3 +15,7 @@ class User(models.Model):
 
     class Meta:
         ordering = ['login_time']
+
+
+if __name__ == "__main__":
+    print('is go')
