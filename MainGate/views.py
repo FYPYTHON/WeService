@@ -71,19 +71,26 @@ class LoginViewMixin(APIView):
         password = request_params.get('password')
         vercode = request_params.get('vertifyCode')
         print(account, password, vercode)
+        resp = message.WebMsg()
+        login_user = None
         try:
             login_user = User.objects.get(account=account)
         except User.DoesNotExist as e:
-            from datetime import datetime
-            User.objects.create(account=account, password=password, email='', create_time=datetime.now())
+            # from datetime import datetime
+            # User.objects.create(account=account, password=password, email='',\
+            # create_time=datetime.now(), login_time='')
+            resp.success = message.FAIL
+            resp.errcode = 404
+            resp.details = e
             print(e)
-        print(type(login_user))
-        if login_user is None:
-            print('not find')
-            # User.objects.create(account=account, password=password, email='')
-        else:
-            print("database:", login_user.account)
-        resp = message.WebMsg(message.FAIL, 400, message.FUNCTION_NOT_FINISHED)
+            return Response(data={'webmsg': resp.to_dict()}, status=status.HTTP_200_OK)
+        if login_user.account != account | login_user.password != password:
+            resp.success = message.FAIL
+            resp.errcode = 404
+            resp.details = "account or password error!"
+            return Response(data={'webmsg': resp.to_dict()}, status=status.HTTP_200_OK)
+
+        resp = message.WebMsg(message.SUCCESS, 200, message.LOGIN_SUCCESS)
         return Response(data={'webmsg': resp.to_dict()}, status=status.HTTP_200_OK)
 
 

@@ -5,6 +5,7 @@ FILE = 0
 PATH = 1
 FAIL = '0'
 SUCCESS = '1'
+LOGIN_SUCCESS = u'登录成功！'
 FUNCTION_NOT_FINISHED = u'功能尚未实现...'
 SEARCH_DISK_LIST_FAIL =u'查找磁盘列表失败！'
 DISK_IS_NOT_EXIST = u'服务器上没有该磁盘，请重新输入正确的磁盘！'
