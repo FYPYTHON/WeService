@@ -84,7 +84,7 @@ class LoginViewMixin(APIView):
             resp.details = e
             print(e)
             return Response(data={'webmsg': resp.to_dict()}, status=status.HTTP_200_OK)
-        if login_user.account != account | login_user.password != password:
+        if login_user.account != account or login_user.password != password:
             resp.success = message.FAIL
             resp.errcode = 404
             resp.details = "account or password error!"

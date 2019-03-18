@@ -51,8 +51,8 @@ let loginStore = {
             window.onload=function(){
                 console.log(elementID);
                 var element = document.getElementById(elementID);//获取div块对象
-                var Height=document.documentElement.clientHeight;//取得浏览器页面可视区域的宽度
-                var Width=document.documentElement.clientWidth;//取得浏览器页面可视区域的宽度
+                var Height=document.documentElement.clientHeight;//取得浏览器页面可视区域的高度
+                var Width=document.documentElement.clientWidth;  //取得浏览器页面可视区域的宽度
                 var divH = element.offsetHeight;//获取div块的高度值
                 var divW = element.offsetWidth;//获取div块的宽度值
                 var CenterHeight= (Height - divH)/2+"px";

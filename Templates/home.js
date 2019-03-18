@@ -1,11 +1,13 @@
-// <li class="active"><a href="{{ home }}">Home</a></li>
-// <li><a href="{{ about }}">About</a></li>
+/*
+created:2019/3/14
+Author :ljf2010_2010@126.com
+*/
 "use strict";
 // 解决兼容问题 
 // Block-scoped declarations (let, const, function, class) not yet supported outside strict mode
 // 文件列表
 let homeStore = {
-    conenteId:'search',
+    conenteId:'profile',
     filelist: {
         data: [],
         type: 0,
@@ -37,7 +39,7 @@ let homeStore = {
                 success: function (data) {
 
                     var all_file_directory = data.filelist.directory.concat(data.filelist.file)
-                    store.filelist.data = all_file_directory
+                    homeStore.filelist.data = all_file_directory
                 }
             })
         },
@@ -62,7 +64,7 @@ let homeStore = {
                     }
                     else{
                         var all_file_directory = data.filelist.directory.concat(data.filelist.file);
-                        store.filelist.data = all_file_directory;
+                        homeStore.filelist.data = all_file_directory;
                         $("#searchResultSync").html("");
                         for (var i = 0; i < all_file_directory.length; i++) {
                             var item = '<li>' + all_file_directory[i] + '</li>';
@@ -80,141 +82,102 @@ let navBar = {
     <nav class="navbar navbar-default">
         <div class="container-fluid">
               <ul class="nav navbar-nav">
-                <li class="active">{{home}}</li>
-                <li>{{about}}</li>               
+                <li><button v-bind:class="{active:status=='profile'}" class="btn  mynavbtn" id="profile" @click="nav_profile">{{profile}}</button></li>
+                <li><button v-bind:class="{active:status=='chart'}" class="btn  mynavbtn" id="chart" @click="nav_chart">{{chart}}</button></li>
+                <li><button v-bind:class="{active:status=='device'}" class="btn  mynavbtn" id="device" @click="nav_device">{{device}}</button></li>
+                <li><button v-bind:class="{active:status=='map'}" class="btn  mynavbtn" id="map" @click="nav_map">{{map}}</button></li>
+                <li><button v-bind:class="{active:status=='user'}" class="btn  mynavbtn" id="user" @click="nav_user">{{user}}</button></li>
+                <li><button v-bind:class="{active:status=='setting'}" class="btn mynavbtn" id="setting" @click="nav_setting">{{setting}}</button></li>            
               </ul>
         </div>
     </nav>
     `,
-    data:function(){
-        return {
-            home:'Home',
-            about:'About'
-        }
-    }
-}
-
-let mainContent = {
-    template:`
-    <h1 class="fs-title testonly">{{ content }}</h1>
+    script:`
+    <script type="text/javascript">
+        console.log("navbar script.");
+    </script>
     `,
     data:function(){
         return {
-            content:'文件服务器demo'
+            profile:'Profile',
+            chart:'Chart',
+            device:'Device',
+            map:'Map',
+            user:'User',
+            setting:'Setting',
+            status:'profile',
         }
-    }
-}
-
-// let rightContent = {
-//     // <searchContent></searchContent>
-//     template:`
-//     <div class="col-sm-8 mycontent testonly" id="switchContent">
-//         <div class="mytempdiv testonly" style="background:#33CCFF">内容</div>
-
-//         <component v-bind:is="which_to_show"></component>
-//     </div>
-//     `, // 逗号不能少
-//     data(){
-//         return {
-//             which_to_show:store.conenteId,
-//         }
-//     },
-
-//     components:{
-//         // 'searchContent':searchContent,
-//         'searchContent': searchContent,
-//         'deleteContent': deleteContent,
-//     },
-//     methods:{
-//         // this.which_to_show = store.conenteId;
-//     }
-// }
-let searchContent = {}
-let deleteContent = {}
-let bodyContent = {
-    template:`
-    <div class="col-sm-12">
-        <div class="col-sm-4 mymenu myborder">
-            <div class="mytempdiv testonly" style="background:#33CCFF">操作</div>
-            <ul class="list-unstyled" style="float:left">
-                <li><button class="btn btn-info mybtn" id="search_con" @click="showsearch">查询</button></li>
-                <li><button class="btn btn-info mybtn" id="new_con" @click="shownew">新建</button></li>
-                <li><button class="btn btn-info mybtn" id="modify_con">修改</button></li>
-                <li><button class="btn btn-info mybtn" id="copy_con" @click="showcopy">复制</button></li>
-                <li><button class="btn btn-info mybtn" id="upload_con" @click="showupload">上传 </button></li>
-                <li><button class="btn btn-info mybtn" id="delete_con" @click="showdownload">下载</button></li>
-                <li><button class="btn btn-info mybtn" id="delete_con" @click="showdelete">删除</button></li>
-            </ul>
-        </div>
-        <div class="col-sm-8 mycontent testonly" id="compID">
-            <div class="mytempdiv testonly" style="background:#33CCFF">内容</div>
-            <componentb v-bind:is="compID"></componentb>
-        </div>
-    </div>
-    `,
-    data(){
-        return {
-            compID: store.conenteId,
-        }
-    },
-    components:{
-        'search': searchContent,
-        'delete': deleteContent,
-        // 'new': newContent,
-        // 'upload': uploadContent,
-        // 'download': downloadContent,
-        // 'copy': copyContent,
     },
     methods:{
-        showsearch(){
-            this.compID = 'search';
+        nav_profile(){
+            this.compID = 'profile';
+            this.status = 'profile';
         },
-        shownew(){
-            this.compID = 'new';
+        nav_chart(){
+            this.compID = 'chart';
+            this.status = 'chart';
         },
-        showdelete(){
-            this.compID = 'delete';
+        nav_device(){
+            this.compID = 'device';
+            this.status = 'device';
         },
-        showupload(){
-            this.compID = 'upload';
+        nav_map(){
+            this.compID = 'map';
+            this.status = 'map';
         },
-        showdownload(){
-            this.compID = 'download';
+        nav_user(){
+            this.compID = 'user';
+            this.status = 'user';
         },
-        showcopy(){
-            this.compID = 'copy';
+        nav_setting(){
+            this.compID = 'setting';
+            this.status = 'setting';
         },
-        showmodify(){
-            this.compID = 'modify';
-        }
 
-    }
+    },
 }
-let homeapp = {
+
+let headContent = {
     template:`
+    <div class="myhead"></div>
+    `,
+}
+let headapp = {
+    template:`
+    <div class="myhead"></div>
+    `
+}
+let profileContent = {}
+let bodyContent = {}
+let homeApp = {
+    template:`
+    <div>
+    <headContent id="myhead"></headContent>
     <div class="container">
         <div class="row">
             <nav-bar></nav-bar>
         </div>
-        <div class="row" style="background:#33FFCC;">
-            <main-content></main-content>
-        </div>
-        <div class="container-fluid">
-            <bodyContent></bodyContent>
-        </div>
     </div>
-    `,
+    </div>
+    `
+    ,
     components:{
+        'headContent':headContent,
         'nav-bar':navBar,
-        'main-content':mainContent,
-        'bodyContent':bodyContent,
+        // 'bodyContent':bodyContent,
     }
 }
-
+// let head = new Vue({
+//     el:'#headapp',
+//     template:`<headapp></headapp>`,
+//     components:{
+//         'headapp':headapp,
+//     }
+// })
 let root = new Vue({
     el:'#homeapp',
     template:`<homeapp></homeapp>`,
     components:{
-        'homeapp':homeapp
+        'homeapp':homeApp,
     },
 })
