@@ -23,7 +23,7 @@ class CsrfExempt(SessionAuthentication):
 
 # Create your views here.
 def home(request):
-    with open('Templates/home.html', 'rb') as f:
+    with open('Templates/wehome.html', 'rb') as f:
         content = f.read()
     return HttpResponse(content)
 
@@ -61,7 +61,7 @@ def weico(request, filename):
 
 class LoginViewMixin(APIView):
     def get(self, request, format=None):
-        with open('Templates/login.html', 'rb') as f:
+        with open('Templates/welogin.html', 'rb') as f:
             content = f.read()
         return HttpResponse(content)
 
