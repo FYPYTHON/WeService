@@ -69,7 +69,6 @@ loginStore.actions.centerDiv('loginID');
 
 let loginapp = {
     template:`
-    
     <div class="container">
     <div class="col-sm-6 testonly" id="loginID">
         <div class="form form-group">
