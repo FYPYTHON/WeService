@@ -1,0 +1,152 @@
+/*
+created:2019/3/30
+Author :ljf2010_2010@126.com
+*/
+/* el-pager */
+.el-pager {
+    user-select: none;
+    list-style: none;
+    display: inline-block;
+    vertical-align: top;
+    font-size: 0;
+    padding: 0;
+ }
+.el-pager li {
+	border: 1px solid #d3dce6;
+	border-right: 0;
+	background: #fff;
+	vertical-align: top;
+	display: inline-block;
+	font-size: 14px;
+	min-width: 28px;
+	height: 28px;
+	line-height: 28px;
+	cursor: pointer;
+	box-sizing: border-box;
+	text-align: center;
+}
+.el-pager li:last-child {
+	border-right: 1px solid #d3dce6;
+}
+.el-pager li.active + li {
+	border-left: 0;
+	padding-left: 1px;
+}
+.el-pager li.active {
+	border-color: #20a0ff;
+	background-color: #20a0ff;
+	color: #fff;
+	cursor: default;
+}
+.el-pager li.ellipsis {
+	cursor: default;
+}
+.el-pager li.ellipsis:before {
+	content: '...';
+}
+.el-pager li.btn-quickprev:hover {
+	cursor: pointer;
+	background: url('svg/double-left.svg') center center no-repeat;
+	background-size: 14px;
+}
+.el-pager li.btn-quicknext:hover {
+	cursor: pointer;
+	background: url('svg/double-right.svg') center center no-repeat;
+	background-size: 14px;
+}
+.el-pager li.ellipsis:hover:before {
+	content: ' ';
+}
+
+/* el-pagination*/
+.el-pagination {
+    padding: 2px 5px;
+    background: #fff;
+    color: #475669;
+  }
+.el-pagination span {
+    padding: 0 6px;
+  }
+.el-pagination span,
+.el-pagination button {
+	display: inline-block;
+	font-size: 14px;
+	min-width: 26px;
+	height: 28px;
+	line-height: 28px;
+	vertical-align: top;
+	box-sizing: border-box;
+}
+.el-pagination .btn-prev,
+.el-pagination .btn-next {
+	background: center center no-repeat;
+	background-size: 16px;
+	border: 1px solid #d3dce6;
+	cursor: pointer;
+}
+
+
+
+.el-pagination .btn-prev {
+	border-radius: 3px 0 0 3px;
+	border-right: 0;
+	/*fill=#99a9bf, stroke=#99a9bf*/
+	background-image: url('svg/left.svg');
+}
+
+
+
+.el-pagination .btn-next {
+	border-radius: 0 3px 3px 0;
+	border-left: 0;
+	/*fill=#99a9bf, stroke=#99a9bf*/
+	background-image: url('svg/right.svg');
+}
+
+
+
+.el-pagination button {
+	border: none;
+	padding: 0 6px;
+	background: transparent;
+}
+
+.el-pagination button:focus {
+	outline: none;
+}
+
+.el-pagination button.disabled {
+	color: #bbb;
+	background-color: #d3dce6;
+	cursor: default;
+
+}
+.el-pagination select {
+	min-height: 28px;
+	height: 28px;
+	width: 50px;
+	background: transparent;
+	border: 1px solid #ddd;
+	vertical-align: top;
+}
+.el-pagination-total {
+
+}
+.el-pagination-rightwrapper {
+	float: right;
+}
+.el-pagination-editor {
+	border: 1px solid #e5e6e7;
+	border-radius: 3px;
+	line-height: 18px;
+	padding: 4px 2px;
+	width: 30px;
+	text-align: center;
+	margin: 0 3px;
+	box-sizing: border-box;
+	transition: border 0.3s;
+}
+.el-pagination-editor:focus {
+	outline: none;
+	border-color: #1ab394;
+}

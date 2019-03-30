@@ -27,7 +27,7 @@ def home(request):
         content = f.read()
     return HttpResponse(content)
 
-
+# http://tool.oschina.net/commons/  -->content type
 # load js
 def wejs(request, filename):
     with open('Templates/{}'.format(filename), 'rb') as f:
@@ -50,6 +50,14 @@ def weimg(request, filename):
         img_content = f.read()
     return HttpResponse(content=img_content,
                     content_type='image/jpeg')
+
+# load img
+def wesvg(request, filename):
+    print("svg ...")
+    with open('Static/svg/{}'.format(filename), 'rb') as f:
+        img_content = f.read()
+    return HttpResponse(content=img_content,
+                    content_type='text/xml')
 
 
 def weico(request, filename):

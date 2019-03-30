@@ -3,6 +3,10 @@ created:2019/3/25
 Author :ljf2010_2010@126.com
 */
 "use strict";
+
+let globalVar = {
+    rightContentId:"right-content",
+}
 let alertModal = {
     template:`
     <div>

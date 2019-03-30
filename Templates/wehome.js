@@ -79,18 +79,18 @@ let homeStore = {
 }
 let navBar = {
     template:`
-    <nav class="navbar navbar-default">
+    <div class="wemenu">
         <div class="container-fluid">
               <ul class="nav navbar-nav">
-                <li><button v-bind:class="{active:status=='profile'}" class="btn  mynavbtn" id="profile" @click="nav_profile">{{profile}}</button></li>
-                <li><button v-bind:class="{active:status=='chart'}" class="btn  mynavbtn" id="chart" @click="nav_chart">{{chart}}</button></li>
-                <li><button v-bind:class="{active:status=='device'}" class="btn  mynavbtn" id="device" @click="nav_device">{{device}}</button></li>
-                <li><button v-bind:class="{active:status=='map'}" class="btn  mynavbtn" id="map" @click="nav_map">{{map}}</button></li>
-                <li><button v-bind:class="{active:status=='user'}" class="btn  mynavbtn" id="user" @click="nav_user">{{user}}</button></li>
-                <li><button v-bind:class="{active:status=='setting'}" class="btn mynavbtn" id="setting" @click="nav_setting">{{setting}}</button></li>            
+                <li><a v-bind:class="{current:status=='profile'}" id="profile" @click="nav_profile">{{profile}}</a></li>
+                <li><a v-bind:class="{current:status=='chart'}" id="chart" @click="nav_chart">{{chart}}</a></li>
+                <li><a v-bind:class="{current:status=='device'}" id="device" @click="nav_device">{{device}}</a></li>
+                <li><a v-bind:class="{current:status=='map'}" id="map" @click="nav_map">{{map}}</a></li>
+                <li><a v-bind:class="{current:status=='user'}" id="user" @click="nav_user">{{user}}</a></li>
+                <li><a v-bind:class="{current:status=='setting'}" id="setting" @click="nav_setting">{{setting}}</a></li>            
               </ul>
         </div>
-    </nav>
+    </div>
     `,
     script:`
     <script type="text/javascript">
@@ -147,8 +147,6 @@ let headapp = {
     <div class="myhead"></div>
     `
 }
-let profileContent = {}
-let bodyContent = {}
 let homeApp = {
     template:`
     <div>
@@ -157,23 +155,35 @@ let homeApp = {
         <div class="row">
             <nav-bar></nav-bar>
         </div>
+        <div class="col-sm-3 center-content">
+            <left-content @getrightContentId="rightContentIdChanged"></left-content>
+        </div>
+        <div class="col-sm-8 center-content">
+            <right-contents v-bind:is="rightContentId"></right-contents>
+        </div> 
     </div>
     </div>
     `
     ,
+    data:function(){
+        return{
+            rightContentId:globalVar.rightContentId,
+        }
+    },
     components:{
         'headContent':headContent,
         'nav-bar':navBar,
-        // 'bodyContent':bodyContent,
+        'left-content':leftContent,
+        'right-content':rightContent,
+        'right-form':rightForm,
+    },
+    methods:{
+        rightContentIdChanged(data){  // get id from left content
+            console.log("right content id changed.",data);
+            this.rightContentId = data;
+        },
     }
 }
-// let head = new Vue({
-//     el:'#headapp',
-//     template:`<headapp></headapp>`,
-//     components:{
-//         'headapp':headapp,
-//     }
-// })
 let root = new Vue({
     el:'#homeapp',
     template:`<homeapp></homeapp>`,

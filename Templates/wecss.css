@@ -9,11 +9,25 @@ body {
 	width: 100%;
 	height:100%;
 	/*border: 2px solid black;*/
+	margin:0 auto;
+	padding:0px 0 0px 0;
 }
 li {
 	margin-right: 5%
 	margin-top:5px;
 	margin-bottom: 5px;
+}
+
+a {
+	color:#256c89;
+}
+h2{
+	font-size:18px;
+	color:#256c89;
+	font-weight:normal;
+	padding:0px 0 15px 0;
+	margin:0px;
+	clear:both;
 }
 nav div li {
 	margin-right: 5px;
@@ -125,4 +139,127 @@ table,td {
 .logindiv {
 	width: 60%;
 	height: 60%;
+}
+/* we contnet */
+.center-content{
+	margin-left: -2%;
+	margin-top: 30px;
+	margin-bottom: 30px;
+}
+.left-content {
+	/*float:left;*/
+	padding: 30px 0 0 30px;
+}
+.right-content {
+	/*float:left;*/
+	padding: 0 0 0 30px;
+}
+/* other extend */
+/* style the links for the top level */
+.wemenu {font-size:11px;padding:0px 10px 0 10px; float:left; width:880px;background:url(img/menu_bg.jpg) no-repeat center top #fff;}
+.wemenu ul {padding:0;margin:0;list-style-type:none; height:34px;}
+.wemenu ul li {float:left;height:34px;line-height:34px;}
+.wemenu a, .wemenu a:visited {display:block;float:left;height:100%;font-size:11px;text-decoration:none;color:#fff;padding:0 21px 0 17px;}
+.wemenu a.current{background:url(img/menu_bg.gif) repeat-x center;}
+.wemenu li:hover {position:relative;}
+.wemenu a:hover {color:#fff;background:url(img/menu_bg.gif) repeat-x center;}
+/** html .wemenu a:hover {position:relative;}*/
+
+/* sub menu */
+.wesidebarmenu{
+	margin:0px 0;
+	padding:30px 0 0 30px;
+}
+.wesidebarmenu,.wesubmenu ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0 0 5px 0;
+}
+.wesidebarmenu,.wesubmenu a{
+	display: block;
+	color: black;
+	text-decoration: none;
+	padding:5px 0;
+	padding-left: 10px;
+}
+.wesidebarmenu,.wesubmenu a:hover{
+	background: #e2f0ff;
+	color: #0e4354;
+}
+.wesubmenu {
+	background: white;
+}
+a.wemenuitem {
+	background:url(img/sidebar_menu_top.gif) repeat-x center top;
+	background-size: cover;
+	color: #fff;
+	display: block;
+	position: relative;
+	/*width:185px;*/
+	width: 100%;
+	height:31px;
+	margin:0 0 5px 0;
+	line-height:31px;
+	padding:0px 0 0 10px;
+	text-decoration: none;
+}
+a.wemenuitem span.accordprefix{
+	float: right;
+	margin-right: 5%;
+	/*background:url(img/plus.gif)*/
+}
+a.wemenuitem span.accordsuffix{
+	float: right;
+	margin-right: 5%;
+	/*background:url(img/minus.gif)*/
+}
+a.wemenuitem .statusicon{
+	/*position: absolute;*/
+	top:11px;
+	right:100px;
+/*	border: solid 1px red;*/
+}
+/*        */
+/* table */
+#rounded-corner
+{
+	width:100%;
+	text-align: left;
+	border-collapse: collapse;
+}
+#rounded-corner thead th.rounded-company
+{
+	width:26px;
+	background: #60c8f2 url('img/left.jpg') left top no-repeat;
+}
+#rounded-corner thead th.rounded-q4
+{
+	background: #60c8f2 url('img/right.jpg') right top no-repeat;
+}
+#rounded-corner th
+{
+	padding: 8px;
+	font-weight: normal;
+	font-size: 13px;
+	color: #039;
+	background: #60c8f2;
+}
+#rounded-corner td
+{
+	padding: 8px;
+	background: #ecf8fd;
+	border-top: 1px solid #fff;
+	color: #669;
+}
+#rounded-corner tfoot td.rounded-foot-left
+{
+	background: #ecf8fd url('img/botleft.jpg') left bottom no-repeat;
+}
+#rounded-corner tfoot td.rounded-foot-right
+{
+	background: #ecf8fd url('img/botright.jpg') right bottom no-repeat;
+}
+#rounded-corner tbody tr:hover td
+{
+	background: #d2e7f0;
 }

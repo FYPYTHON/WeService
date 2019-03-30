@@ -15,14 +15,16 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.conf.urls import url
-from MainGate.views import wejs, wecss, weico, weimg, home, LoginViewMixin
+from MainGate.views import wejs, wecss, weico, weimg, wesvg, home, LoginViewMixin
 
 urlpatterns = [
     url('admin/', admin.site.urls),
-    url(r'^(home|login)/js/(?P<filename>.*\.js)$', wejs, name='myjs'),  # the same with href src
-    url(r'^(home|login)/css/(?P<filename>.*\.css)$', wecss, name='mycss'),
-    url(r'^(home|login)/ico/(?P<filename>.*\.ico)$', weico, name='myico'),  # load ico
-    url(r'^(home|login)/css/img/(?P<filename>.*\.(jpg|png|gif|jpeg|bmp))$', weimg, name='myimg'), # load picture setting in css
+    url(r'^(home|login)/js/(?P<filename>.*\.js)$', wejs, name='wejs'),  # the same with href src
+    url(r'^(home|login)/css/(?P<filename>.*\.css)$', wecss, name='wecss'),
+    url(r'^(home|login)/ico/(?P<filename>.*\.ico)$', weico, name='weico'),  # load ico
+    # load picture setting in css.eg:background:url("/img/*.gif)
+    url(r'^(home|login)/css/img/(?P<filename>.*\.(jpg|png|gif|jpeg|bmp))$', weimg, name='weimg'),
+    url(r'^(home|login)/css/svg/(?P<filename>.*\.svg)$', wesvg, name='wesvg'),  # load svg
     url(r'^login/', LoginViewMixin.as_view(), name="login"),
     url(r'^home/', home, name="home"),
 
