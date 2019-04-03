@@ -51,9 +51,9 @@ def weimg(request, filename):
     return HttpResponse(content=img_content,
                     content_type='image/jpeg')
 
+
 # load img
 def wesvg(request, filename):
-    print("svg ...")
     with open('Static/svg/{}'.format(filename), 'rb') as f:
         img_content = f.read()
     return HttpResponse(content=img_content,

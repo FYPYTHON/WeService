@@ -5,16 +5,16 @@ Author :ljf2010_2010@126.com
 let paper = {
     template:`
     <ul @click="onPagerClick($event)" class="el-pager">
-      <li :class="{ active: currentPage === 1 }" v-if="pageCount > 0" class="number">1</li>
+      <li :class="{ active: currentpage === 1 }" v-if="pageCount > 0" class="number">1</li>
       <li class="ellipsis btn-quickprev" v-if="showPrevMore"></li>
       <li v-for="pager in pagers" :class="{ active: $parent.currentPage === pager }" class="number">{{ pager }}</li>
       <li class="ellipsis btn-quicknext" v-if="showNextMore"></li>
-      <li :class="{ active: currentPage === pageCount }" class="number" v-if="pageCount > 1">{{ pageCount }}</li>
+      <li :class="{ active: currentpage === pageCount }" class="number" v-if="pageCount > 1">{{ pageCount }}</li>
     </ul>
     `,
     name:'ELPager',
     props:{
-      currentPage: {
+      currentpage: {
         type: Number
       },
 
@@ -31,7 +31,7 @@ let paper = {
         }
         let newPage = Number(event.target.textContent);
         const pageCount = this.pageCount;
-        const currentPage = this.currentPage;
+        const currentPage = this.currentpage;
         if (target.className.indexOf('ellipsis') !== -1) {
           if (target.className.indexOf('quickprev') !== -1) {
             newPage = currentPage - 5;
@@ -57,23 +57,17 @@ let paper = {
     computed: {
       pagers() {
         const pagerCount = 7;
-        const currentPage = Number(this.currentPage);
+        const currentPage = Number(this.currentpage);
         const pageCount = Number(this.pageCount);
         let showPrevMore = false;
         let showNextMore = false;
         if (pageCount > pagerCount) {
-
           if (currentPage > pagerCount - 2) {
-
             showPrevMore = true;
-
           }
           if (currentPage < pageCount - 2) {
-
             showNextMore = true;
-
           }
-
         }
         const array = [];
         if (showPrevMore && !showNextMore) {
@@ -124,6 +118,7 @@ let el_pagination = {
     <div class="el-pagination">
     </div>
     `,
+    name:'ElPagination',
     props:{
       pageSize:{
         type:Number,
