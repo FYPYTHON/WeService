@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.conf.urls import url
-from MainGate.views import wejs, wecss, weico, weimg, wesvg, home, LoginViewMixin
+from MainGate.views import wejs, wecss, weico, weimg, wesvg, home, LoginViewMixin, profile, wefont
 
 urlpatterns = [
     url('admin/', admin.site.urls),
@@ -26,7 +26,15 @@ urlpatterns = [
     url(r'^(home|login)/css/img/(?P<filename>.*\.(jpg|png|gif|jpeg|bmp))$', weimg, name='weimg'),
     url(r'^(home|login)/css/svg/(?P<filename>.*\.svg)$', wesvg, name='wesvg'),  # load svg
     url(r'^login/', LoginViewMixin.as_view(), name="login"),
-    url(r'^home/', home, name="home"),
+    url(r'^home/$', home, name="home"),
+
+    url(r'^profile/$', profile, name="profile"),
+    url(r'^profile/js/(?P<filename>.*\.js)$', wejs, name='wejs'),
+    url(r'^profile/ico/(?P<filename>.*\.(ico|png))$', weico, name='myico'),
+    url(r'^profile/fonts/(?P<filename>.*\.(ttf|woff|woff2|eot|svg))$', wefont, name='wefont'),
+    url(r'^profile/css/(?P<filename>.*\.(ttf|woff|woff2|eot|svg))$', wefont, name='wefont'),
+    url(r'^profile/css/(?P<filename>.*\.(css|map))$', wecss, name='wecss'),
+    url(r'^profile/css/img/(?P<filename>.*\.(jpg|png|gif|jpeg|bmp))$', weimg, name='weimg'),
 
 ]
 

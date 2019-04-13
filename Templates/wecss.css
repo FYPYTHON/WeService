@@ -263,3 +263,25 @@ a.wemenuitem .statusicon{
 {
 	background: #d2e7f0;
 }
+/* echart style*/
+.weechart {
+	height:550px;
+	border:1px solid #ccc;
+	padding:10px;
+}
+.wediskinfo {
+	height: 100px;
+	border:1px solid #ccc;
+	padding:1px;
+	margin-top: 2px;
+	/*background: #00FFFF;*/
+}
+.weredbg {
+	background: #FF6600;
+}
+.webluebg {
+	background: #00FFFF;
+}
+.wegraybg {
+	background: #C0C0C0;
+}

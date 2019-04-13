@@ -66,7 +66,20 @@ def weico(request, filename):
     return HttpResponse(content=ico_content,
                         content_type='application/x-ico')
 
+# Create your views here.
+def profile(request):
+    # print("profile", request)
+    with open('Templates/weprofile.html', 'rb') as f:
+        content = f.read()
+    return HttpResponse(content)
 
+
+def wefont(request, filename):
+    # print(filename)
+    with open('Static/asset/fonts{}'.format(filename), 'rb') as f:
+        font_content = f.read()
+    return HttpResponse(content=font_content,
+                        content_type='application/x-font-woff')
 class LoginViewMixin(APIView):
     def get(self, request, format=None):
         with open('Templates/welogin.html', 'rb') as f:
