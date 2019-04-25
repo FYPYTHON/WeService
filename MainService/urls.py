@@ -36,5 +36,6 @@ urlpatterns = [
     url(r'^profile/css/(?P<filename>.*\.(css|map))$', wecss, name='wecss'),
     url(r'^profile/css/img/(?P<filename>.*\.(jpg|png|gif|jpeg|bmp))$', weimg, name='weimg'),
 
+
 ]
 

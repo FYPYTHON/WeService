@@ -8,6 +8,7 @@ Author :ljf2010_2010@126.com
 // 文件列表
 let homeStore = {
     conenteId:'profile',
+    uri:'/weservice/v1/',
     filelist: {
         data: [],
         type: 0,
